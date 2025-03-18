@@ -1,26 +1,30 @@
+#include <locale.h>
 #include <stdio.h>
 
 int main() {
-        
+    setlocale(LC_ALL, "pt_PT.UTF-8"); // Configura o locale com base no sistema operacional
+    // Seu programa aqui...
+   
     //Recebendo os dados da carta de Recife.
     char estado1[] = "Pernambuco";
     char codigoDaCarta1[] = "A01";
     char cidade1[] = "Recife";
-    int populacao1 = 1490.000;
-    float area1 = 218.400;
-    float PIB1 = 55000.00;
-    int pontoTuristico1 = 30;
+    int populacao1 = 1490000; //Representando 1.490.000
+    float area1 = 218.400f; //Área em km²
+    float PIB1 = 55000.00; //PIB em R$
+    int pontoTuristico1 = 30; //Número de pontos turísticos
 
     //Recebendo os dados da carta de Salvador.
     char estado2[] = "Bahia";
     char codigoDaCarta2[] = "B01";
     char cidade2[] = "Salvador";    
-    int populacao2 = 2420.000;
-    float area2 = 693.400;
-    float PIB2 = 62694.00;
-    int pontoTuristico2 = 30;
+    int populacao2 = 2420000; //Representando 2.420.000
+    float area2 = 693.400f; //Área em km²
+    float PIB2 = 62694.00; //PIB em R$
+    int pontoTuristico2 = 30; //Número de pontos turísticos
 
     //Dados para exibição da carta de Recife.
+    printf("=== Carta de Recife ===\n");
     printf("Estado: %s\n", estado1);
     printf("Código da Carta: %s\n", codigoDaCarta1);
     printf("Cidade: %s\n", cidade1);
@@ -30,6 +34,7 @@ int main() {
     printf("Pontos Turísticos: %d\n", pontoTuristico1);
 
     //Dados para exibição da carta de Salvador.
+    printf("=== Carta de Salvador ===\n");
     printf("Estado: %s\n", estado2);
     printf("Código da Carta: %s\n", codigoDaCarta2);
     printf("Cidade: %s\n", cidade2);
@@ -39,15 +44,15 @@ int main() {
     printf("Pontos Turísticos: %d\n", pontoTuristico2);
 
     //Calcular Densidade Populacional e PIB per capita de Recife.
-    float densidadePopulacional1 = populacao1 / area1;
-    float PIBperCapita1 = PIB1 / populacao1;
+    float densidadePopulacional1 = (float)populacao1 / area1;
+    float PIBperCapita1 = PIB1 / ((float)populacao1 / 1000000); // Corrigido
 
     printf("Densidade Populacional de Recife: %.2f\n", densidadePopulacional1);
     printf("PIB per capita de Recife em R$: %.2f\n", PIBperCapita1);  
 
     //Calcular Densidade Populacional e PIB per capita de Salvador.
-    float densidadePopulacional2 = populacao2 / area2;  
-    float PIBperCapita2 = PIB2 / populacao2;
+    float densidadePopulacional2 = (float)populacao2 / area2;  
+    float PIBperCapita2 = PIB2 / ((float)populacao2 / 1000000); // Corrigido
 
     printf("Densidade Populacional de Salvador: %.2f\n", densidadePopulacional2);
     printf("PIB per capita de Salvador em R$: %.2f\n", PIBperCapita2);  
@@ -97,16 +102,6 @@ int main() {
     //Exibir resultado da comparação da Densidade Populacional.
     printf("Carta 1 - Recife(PE): %.2f\n", densidadePopulacional1);
     printf("Carta 2 - Salvador(BA): %.2f\n", densidadePopulacional2);
-
-    //Códigos dos Estados e Cidades cadastradas.
-    char codigoDePernambuco = 'A';
-    char codigoDaBahia = 'B';
-
-    char codigoRecife[] = "01";
-    char codigoSalvador[] = "02";
-
-    char codigoCarta1[3] = "A01";  
-    char codigoCarta2[3] = "B02";
 
     return 0;
 }
