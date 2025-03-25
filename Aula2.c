@@ -1,100 +1,86 @@
-#include <stdio.h>
-
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Teste Alef de Jesus Caires Castro
+#include<stdio.h>
+#include "utilitarios/iniciacao.h"
 
 int main() {
-// Definição de variáveis para cada atributo das cidades 1 e 2
 
-
-    char estado1, estado2;
-    char codigo1[20];
-    char codigo2[20];
-    char nomedacidade1[50], nomedacidade2[50];
-    int populacao1, populacao2;
-    float areakm1, areakm2;
-    float PIB1, PIB2;
-    int pontosturisticos1, pontosturisticos2;
-    
-    //Preenchimento de cadastro da carta 1 ultilizando o scanf
-    //pede ao usuario que insira os dados da primeira carta
-
-
-    printf("Carta 1: \n");
-
-    printf("Digite o Estado(A-Z): \n");
-    scanf("%c", &estado1);
-
-    printf("Codigo da carta(1-4): \n");
-    scanf("%s", codigo1);
-
-    printf("Cidade: \n");
-    scanf("%s", &nomedacidade1);
-
-    printf("Populacao da cidade: \n");
-    scanf("%d", &populacao1);
-
-    printf("Area em km²:\n");
-    scanf("%f", &areakm1);
-
-    printf("PIB:\n");
-    scanf("%f", &PIB1);
-
-    printf("Digite o numero de pontos turisticos 1:\n");
-    scanf("%d", &pontosturisticos1);
-
-       
-    printf("\nCarta 1:\n");
-    
-    printf("Estado: %c\n",estado1); 
-    printf("Codigo da carta: %s\n",codigo1);
-    printf("Nome da Cidade: %s\n",nomedacidade1);
-    printf("Populacao: %d\n",populacao1);
-    printf("Area em km²: %f\n",areakm1);
-    printf("PIB: %f\n", PIB1);
-    printf("Numero de pontos turisticos: %d\n",pontosturisticos1);
-
-
-    printf("\nCarta 2: \n");
-
-    printf("Digite o estadoA-Z: \n");
-    scanf("%c", estado2);
-
-    printf("Codigo da carta(1-4): \n");
-    scanf("%s", &codigo1);
-
-    printf("Cidade: \n");
-    scanf("%s", &nomedacidade2);
-
-    printf("Populaçao da cidade: \n");
-    scanf("%d", &populacao2);
-
-    printf("Area em km²: \n");
-    scanf("%f", &areakm2);
-
-    printf("PIB: \n");
-    scanf("%f", PIB2);
-
-    printf("Numero de pontos turisticos: \n");
-    scanf("%d", pontosturisticos2);
-
-    
-    printf("\nCarta 2:\n");
-
-    printf("Estado: %c\n",estado2); 
-    printf("Codigo da carta: %s\n",codigo2);
-    printf("Nome da Cidade: %s\n",nomedacidade2);
-    printf("Populacao: %d\n",populacao2);
-    printf("Area em km²: %f\n",areakm2);
-    printf("PIB: %f\n", PIB2);
-    printf("Numero de pontos turisticos: %d\n",pontosturisticos2);
-
-
-          
-   
-    return 0;
+// Verifica se o jogador quer sair
+if (atributo1 == 0) {
+    printf("Jogo encerrado. Obrigado por participar!\n");
+    return 0; // Sai do programa
 }
 
+    // Comparação do primeiro atributo usando switch e if/else
+    switch (atributo1) {
+        case 1:
+            if (populacao1 > populacao2) {
+                printf("Recife tem maior população que Salvador: Recife é a vencedora!\n");
+            } else if (populacao1 < populacao2) {
+                printf("Salvador tem maior população que Recife: Salvador é a vencedora!\n");
+            } else {
+                printf("Empate! Recife e Salvador têm a mesma população.\n");
+            }
+            //Exibir o resultado da comparação da população.
+            printf("População de Recife: %d\n", populacao1);
+            printf("População de Salvador: %d\n", populacao2);
+            break;
+        case 2:
+            if (area1 > area2) {
+                printf("Recife tem maior área que Salvador: Recife é a vencedora!\n");
+            } else if (area1 < area2) {
+                printf("Salvador tem maior área que Recife: Salvador é a vencedora!\n");
+            } else {
+                printf("Empate! Recife e Salvador têm a mesma área.\n");
+            }
+            //Exibir o resultado da comparação da área.
+            printf("Área de Recife em km²: %.2f\n", area1);
+            printf("Área de Salvador em km²: %.2f\n", area2);
+            break;
+        case 3:
+            if (PIB1 > PIB2) {
+                printf("Recife tem maior PIB que Salvador: Recife é a vencedora!\n");
+            } else if (PIB1 < PIB2) {
+                printf("Salvador tem maior PIB que Recife: Salvador é a vencedora!\n");
+            } else {
+                printf("Empate! Recife e Salvador têm o mesmo PIB.\n");
+            }
+            //Exibir o resultado da comparação do PIB.
+            printf("PIB de Recife R$: %.2f\n", PIB1);
+            printf("PIB de Salvador R$: %.2f\n", PIB2);
+            break;
+        case 4:
+            if (pontoTuristico1 > pontoTuristico2) {
+                printf("Recife tem mais pontos turísticos que Salvador: Recife é a vencedora!\n");
+            } else if (pontoTuristico1 < pontoTuristico2) {
+                printf("Salvador tem mais pontos turísticos que Recife: Salvador é a vencedora!\n");
+            } else {
+                printf("Empate! Recife e Salvador têm a mesma quantidade de pontos turísticos.\n");
+            }
+            //Exibir o resultado da comparação dos pontos turísticos.
+            printf("Pontos Turísticos de Recife: %d\n", pontoTuristico1);
+            printf("Pontos Turísticos de Salvador: %d\n", pontoTuristico2);
+            break;
+        case 5:
+            if (densidadeDemografica1 < densidadeDemografica2) {
+                printf("Recife tem menor densidade demográfica que Salvador: Recife é a vencedora!\n");
+            } else if (densidadeDemografica1 > densidadeDemografica2) {
+                printf("Salvador tem menor densidade demográfica que Recife: Salvador é a vencedora!\n");
+            } else {
+                printf("Empate! Recife e Salvador têm a mesma densidade demográfica.\n");
+            }
+            //Exibir o resultado da comparação da densidade demográfica.
+            printf("Densidade Demográfica de Recife: %.2f hab/km²\n", densidadeDemografica1);
+            printf("Densidade Demográfica de Salvador: %.2f hab/km²\n", densidadeDemografica2);
+           
+            break;
+        case 6:
+            printf("Regras do jogo: Compare os atributos e o maior valor vence, com exceção da densidade demográfica, onde o menor valor ganha!\n");
+            break;
+        default:
+            printf("Opção inválida! Tente novamente.\n");
+            break;
 
+
+            return 0;
+    }
+
+}
