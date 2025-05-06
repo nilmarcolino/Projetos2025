@@ -1,27 +1,30 @@
 #include <stdio.h>
-
+ 
 int main() {
-    int idade;
-    int renda;
-
-    printf("Digite sua idade: ");
-    scanf("%d", &idade);
-
-    printf("Digite a sua renda mensal: ");
-    scanf("%d", &renda);
-
-    // Estrutura de decisão aninhada
-    if (idade <= 18 || idade >= 60)
-    {
-        if (renda < 2000) 
-        {
-            printf("Você tem direito ao desconto.\n");
-        } else {
-            printf("Você não tem direito ao desconto devido à renda.\n");
+    int option;
+   
+    do {
+        printf("Menu:\n");
+        printf("1. Opção 1\n");
+        printf("2. Opção 2\n");
+        printf("3. Sair\n");
+        printf("Escolha uma opção: \n");
+        scanf("%d", &option);
+       
+        switch(option) {
+            case 1:
+                printf("Você escolheu a opção 1\n");
+                break;
+            case 2:
+                printf("Você escolheu a opção 2\n");
+                break;
+            case 3:
+                printf("Saindo...\n");
+                break;
+            default:
+                printf("Opção inválida!\n");
         }
-    } else {
-        printf("Você não atende aos critérios devido à idade.\n");
-    }
-
+    } while (option != 3);
+   
     return 0;
 }
